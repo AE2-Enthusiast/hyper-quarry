@@ -1,0 +1,12 @@
+[{
+    "modid": "${modid}",
+    "name": "${modname}",
+    "description": "The quarry must grow!",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "logoFile": "",
+    "url": "https://github.com/SamStone1000/hyper-quarry",
+    "authorList": ["Stone"],
+    "credits": "XU2 for their terribe quantum quarry implementation",
+    "dependencies": []
+}]
