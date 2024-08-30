@@ -21,6 +21,7 @@ public class HyperQuarry {
     
     public SaveSampler sampler;
 
+    private int time = 0;
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         MinecraftForge.EVENT_BUS.register(this);
@@ -28,8 +29,8 @@ public class HyperQuarry {
     
     @SubscribeEvent
     public void onServerTick(ServerTickEvent event) {
-        if (event.phase == TickEvent.Phase.START)
-            sampler.tick();
+            if (event.phase == TickEvent.Phase.START)
+                sampler.tick();
     }
 
     @EventHandler
