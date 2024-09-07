@@ -178,12 +178,6 @@ public class WorldSampler {
             
     }
 
-    private int getRandomChunkCoord() {
-        int coord = this.rand.nextInt(30000000 / 16);
-        return this.rand.nextBoolean() ? coord : -coord;
-    }
-
-
     boolean isWritten = false;
     public void stop() {
         if (!isWritten)
