@@ -153,16 +153,13 @@ public class MainSampler {
                     for (var metaCount : dropCount.getValue().entrySet()) {
                         double metaWeight = metaWeights
                             .computeIfAbsent(metaCount.getKey(), ($) -> 0d);
-                        HyperQuarry.LOGGER
-                            .info(((double) metaCount.getValue().value / sampler.total)
-                                * stateWeight);
                         metaWeight += (metaCount.getValue().value / sampler.total) * stateWeight;
                         metaWeights.put((int) metaCount.getKey(), metaWeight);
                     }
                 }
             }
             try (PrintWriter output = new PrintWriter(
-                new File(root, "drops_" + dimension.getKey() + ".txt")))
+                new File(root, "smelts_" + dimension.getKey() + ".txt")))
             {
                 for (var entry : dropWeights.entrySet())
                 {
@@ -170,6 +167,8 @@ public class MainSampler {
                     String name = Item.REGISTRY.getNameForObject(entry.getKey()).toString();
                     for (var metaWeight : dropWeight.entrySet())
                     {
+                        if (metaWeight.getValue() == 0)
+                            continue;
                         output.print(name);
                         output.print(':');
                         output.print(metaWeight.getKey());

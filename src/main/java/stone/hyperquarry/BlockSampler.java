@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.WorldServer;
@@ -37,17 +38,23 @@ public class BlockSampler {
 
     public void tick() {
         workDim.setBlockState(pos, state, 0b0000);
-        block.getDrops(buffer, workDim, pos, state, 5);
+        block.getDrops(buffer, workDim, pos, state, 0);
         buffer.forEach((stack) -> {
+            ItemStack result = FurnaceRecipes.instance().getSmeltingResult(stack);
+            if (result != ItemStack.EMPTY)
+                stack = result;
             if (stack.hasTagCompound()) {
                 HyperQuarry.LOGGER
                     .warn("Stack {} has nbt data, statistics are potentially wrong!",
                         stack.toString());
-            }
+            } else
+            {
             stackCounts
                 .computeIfAbsent(stack.getItem(),
                     ($) -> new Int2ObjectOpenHashMap<>())
-                .computeIfAbsent(stack.getMetadata(), ($) -> new MutableLong()).value++;
+                    .computeIfAbsent(stack.getMetadata(), ($) -> new MutableLong()).value += stack
+                        .getCount();
+            }
         });
         total++;
         buffer.clear();
@@ -101,7 +108,7 @@ public class BlockSampler {
                 target = (long) minITarget;
             }
 
-            if (maxRatio >= .9999 || minRatio <= .0001)
+            if (maxRatio >= .9999)
                 isDone = true;
 
             if (total > 1_000_000l)
