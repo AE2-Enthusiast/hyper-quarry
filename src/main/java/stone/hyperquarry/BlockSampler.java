@@ -4,6 +4,7 @@ import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
@@ -38,7 +39,37 @@ public class BlockSampler {
 
     public void tick() {
         workDim.setBlockState(pos, state, 0b0000);
-        block.getDrops(buffer, workDim, pos, state, 0);
+        try
+        {
+            if (!block.canSilkHarvest(workDim, pos, state, null))
+                return;
+        } catch (NullPointerException e)
+        {
+            HyperQuarry.LOGGER
+                .warn("Blockstate {} threw a NPE while determining silk harvestibility",
+                    this.state);
+            return;
+        }
+        Item item;
+        int meta = 0;
+        if (!(state.getBlockHardness(workDim, pos) >= 0))
+        {
+            item = Items.AIR;
+        } else
+        {
+            item = Item.getItemFromBlock(this.block);
+            if (item.getHasSubtypes())
+            {
+                meta = this.block.getMetaFromState(state);
+            }
+        }
+
+
+
+        stackCounts
+            .computeIfAbsent(item, ($) -> new Int2ObjectOpenHashMap<>())
+            .computeIfAbsent(meta, ($) -> new MutableLong()).value = 1;
+
         buffer.forEach((stack) -> {
             ItemStack result = FurnaceRecipes.instance().getSmeltingResult(stack);
             if (result != ItemStack.EMPTY)

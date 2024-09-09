@@ -8,6 +8,7 @@ import it.unimi.dsi.fastutil.objects.Object2LongMap;
 import it.unimi.dsi.fastutil.objects.Object2LongOpenHashMap;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.server.FMLServerHandler;
@@ -84,13 +85,16 @@ public class MainSampler {
 
         total -= sampler.total;
         long start = System.nanoTime();
+        boolean isDone = false;
         for (int i = 0; i < samplerSpeed; i++)
         {
             sampler.tick();
-            if (sampler.isDone)
+            BlockSampler.workDim.loadedEntityList.clear();
+            isDone = selectNewSampler();
+            if (isDone)
                 break;
         }
-        BlockSampler.workDim.loadedEntityList.clear();
+
         double genTime = (System.nanoTime() - start) / (samplerSpeed == 0 ? 1 : samplerSpeed);
         total += sampler.total;
 
@@ -100,10 +104,6 @@ public class MainSampler {
         if (samplerSpeed < 1)
             samplerSpeed = 1;
 
-        boolean isDone = false;
-        if (sampler.isDone) {
-            isDone = selectNewSampler();
-        }
         if (isDone) {
             HyperQuarry.LOGGER.info("All samplers finished in {} blocks", total);
             this.stop();
@@ -159,10 +159,12 @@ public class MainSampler {
                 }
             }
             try (PrintWriter output = new PrintWriter(
-                new File(root, "smelts_" + dimension.getKey() + ".txt")))
+                new File(root, "silks_" + dimension.getKey() + ".txt")))
             {
                 for (var entry : dropWeights.entrySet())
                 {
+                    if (entry.getKey() == Items.AIR)
+                        continue;
                     Int2DoubleMap dropWeight = entry.getValue();
                     String name = Item.REGISTRY.getNameForObject(entry.getKey()).toString();
                     for (var metaWeight : dropWeight.entrySet())
