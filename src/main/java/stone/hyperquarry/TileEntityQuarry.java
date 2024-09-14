@@ -1,5 +1,7 @@
 package stone.hyperquarry;
 
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
@@ -10,30 +12,39 @@ import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.annotation.Nullable;
 
 public class TileEntityQuarry extends TileEntity implements ITickable, IEnergyStorage {
 
-    public static final int COST_PER_ITEM = 20000;
+    public int cost = 20000;
 
     private int energy = 0;
 	private DropList drops;
 	
 	public TileEntityQuarry() {
-        this.drops = DropList.of(0);
-        this.drops.init();
+        this.drops = DropList.of(-1);
+        Set<Item> filter = new HashSet<>();
+        filter.add(Item.getItemFromBlock(Blocks.NETHERRACK));
+        this.drops = this.drops.filter(false, filter);
+        this.cost = this.drops.init();
 
 	}
+
 	@Override
 	public void update() {
-	    if (energy < COST_PER_ITEM)
+        if (this.world.isRemote)
+            return;
+        if (energy < cost)
             return;
 		TileEntity maybeEntity = this.world.getTileEntity(pos.up());
 		if (maybeEntity != null) {
 			IItemHandler handler = maybeEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.DOWN);
 			if (handler != null) {
-                int toMine = energy / COST_PER_ITEM;
-                energy = energy % COST_PER_ITEM;
+                int toMine = energy / cost;
+                energy = energy % cost;
                 // bypass the stack limit cause why not
                 int stacks = toMine / Byte.MAX_VALUE;
                 byte leftover = (byte) (toMine % Byte.MAX_VALUE);
@@ -70,7 +81,7 @@ public class TileEntityQuarry extends TileEntity implements ITickable, IEnergySt
 	}
 
     private void refundEnergy(int stacks, int leftover) {
-        this.energy += (stacks * Byte.MAX_VALUE + leftover) * COST_PER_ITEM;
+        this.energy += (stacks * Byte.MAX_VALUE + leftover) * cost;
     }
 
     @Override
