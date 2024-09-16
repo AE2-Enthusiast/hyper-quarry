@@ -1,0 +1,4 @@
+minecraft:red_mushroom:0-6.152377757672242E-6
+abyssalcraft:cobblestone:0-0.944934331407476
+minecraft:dirt:0-0.01786154115804389
+minecraft:brown_mushroom:0-1.3772936571152632E-5

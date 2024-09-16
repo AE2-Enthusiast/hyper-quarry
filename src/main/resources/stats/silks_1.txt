@@ -1,0 +1,14 @@
+minecraft:obsidian:0-3.784905137413664E-5
+minecraft:iron_bars:0-4.377207234105343E-8
+thermalfoundation:ore_fluid:4-0.006313447465206391
+minecraft:stained_glass:2-1.541256640348544E-5
+thaumicaugmentation:stone:0-2.2845424057453913E-7
+thaumicaugmentation:stone:2-1.6189670591896474E-8
+minecraft:end_stone:0-0.9837284198684049
+draconicevolution:draconium_ore:2-9.919369198434916E-4
+mysticalagriculture:end_inferium_ore:0-0.003094644740527283
+minecraft:end_bricks:0-7.111042979647327E-5
+mysticalagriculture:end_prosperity_ore:0-0.0030884488936300213
+minecraft:purpur_block:0-2.449808961617188E-4
+minecraft:ender_chest:0-5.096748149300742E-8
+minecraft:purpur_pillar:0-8.075887385181425E-5

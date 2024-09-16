@@ -1,0 +1,12 @@
+divinerpg:twilight_stone:0-0.8180224806856883
+divinerpg:apalachia_planks:0-4.986337036812757E-5
+divinerpg:ender_stone_lamp:0-7.694347732155958E-6
+divinerpg:wildwood_block:0-4.396770132660547E-6
+divinerpg:apalachia_ore:0-6.879945991674516E-4
+divinerpg:apalachia_log:0-0.009721858322876016
+divinerpg:apalachia_dirt:0-0.10420475118977598
+minecraft:stained_glass:10-3.727261953369055E-5
+divinerpg:apalachia_bricks:0-6.305368076610921E-5
+divinerpg:apalachia_leaves:0-0.016188907628456137
+minecraft:stained_glass_pane:10-6.195448823294408E-6
+divinerpg:apalachia_grass:0-0.03804335335262716

@@ -1,0 +1,12 @@
+abyssalcraft:dreadlandsdirt:0-0.014000588059278455
+abyssalcraft:darkstone_brick:0-0.0019212868064243578
+abyssalcraft:darkstone_brick:1-9.066746726946408E-4
+abyssalcraft:dreadlog:0-0.003047534258650538
+abyssalcraft:dreadsapling:0-0.0
+minecraft:red_mushroom:0-1.4991314032649484E-6
+abyssalcraft:cobblestone:0-0.014506794763114252
+abyssalcraft:cobblestone:2-0.8231174857287687
+abyssalcraft:cobblestone:3-0.08303219114844859
+abyssalcraft:dreadore:0-0.003043836401189151
+abyssalcraft:abydreadore:0-0.002809971902279819
+minecraft:brown_mushroom:0-3.2980890871828864E-6

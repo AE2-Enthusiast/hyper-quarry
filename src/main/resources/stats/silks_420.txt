@@ -1,0 +1,12 @@
+divinerpg:twilight_stone:0-0.8459090629040945
+divinerpg:eden_planks:0-4.820568367109813E-5
+divinerpg:eden_lamp:0-1.573666650824765E-5
+divinerpg:eden_leaves:0-0.0041582198449710076
+divinerpg:eden_ore:0-7.248337735673885E-4
+divinerpg:eden_log:0-0.0014809951702761958
+divinerpg:eden_dirt:0-0.09522278760621916
+divinerpg:eden_bricks:0-9.364287971574529E-5
+divinerpg:divine_rock:0-1.750946998834345E-5
+minecraft:stained_glass:4-3.86131168952373E-6
+divinerpg:divine_moss_stone:0-6.263096130365848E-5
+divinerpg:eden_grass:0-0.033735818816764414

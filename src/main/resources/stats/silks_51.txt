@@ -1,0 +1,11 @@
+abyssalcraft:dreadlandsdirt:0-0.010381085199235564
+abyssalcraft:stone:2-0.8231174857287687
+abyssalcraft:stone:3-0.08303219114844859
+abyssalcraft:dreadleaves:0-0.00188340875296853
+abyssalcraft:cobblestone:0-0.014506794763114252
+abyssalcraft:dreadore:0-0.003043836401189151
+abyssalcraft:dreadgrass:0-0.003619502860042891
+abyssalcraft:dreadlog:0-0.003047534258650538
+abyssalcraft:darkstone_brick:0-0.0019212868064243578
+abyssalcraft:darkstone_brick:1-9.066746726946408E-4
+abyssalcraft:abydreadore:0-0.002809971902279819

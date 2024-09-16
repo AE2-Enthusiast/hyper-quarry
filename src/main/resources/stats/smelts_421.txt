@@ -1,0 +1,16 @@
+divinerpg:wildwood_bricks:0-1.0636421804110729E-4
+minecraft:bed:0-1.039943468673043E-6
+divinerpg:twilight_stone:0-0.7977749229551881
+divinerpg:wildwood_fragments:0-6.916824001447281E-4
+divinerpg:wildwood_log:0-0.011163363159578646
+divinerpg:diamond_lamp:0-8.259551010807052E-6
+minecraft:crafting_table:0-1.0299440122434945E-6
+divinerpg:aqua_lamp:0-5.489701579822121E-6
+divinerpg:wildwood_dirt:0-0.15694324856500802
+divinerpg:moonlight_fern:0-0.003336968602386774
+divinerpg:moon_bud:0-0.003347668020766391
+divinerpg:eden_block:0-1.0749415661764626E-5
+minecraft:chest:0-1.079941294391237E-6
+divinerpg:wildwood_planks:0-1.0959404246785144E-4
+divinerpg:wildwood_stairs:0-7.474593681087496E-5
+divinerpg:wildwood_slab:0-2.860844484493823E-5

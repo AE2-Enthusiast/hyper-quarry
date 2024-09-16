@@ -1,0 +1,2 @@
+abyssalcraft:stone:0-0.944934331407476
+minecraft:dirt:0-0.01786154115804389

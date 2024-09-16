@@ -1,0 +1,16 @@
+abyssalcraft:abygolore:0-2.1426585926432657E-4
+abyssalcraft:abyiroore:0-0.0010186118245149429
+abyssalcraft:fusedabyssalsand:0-0.013807083418357487
+abyssalcraft:cobblestone:0-0.015904335867227882
+abyssalcraft:cobblestone:4-9.974169637393088E-5
+abyssalcraft:abybrick:0-8.669716848845584E-5
+abyssalcraft:abycopore:0-0.0010174931513731564
+abyssalcraft:abypcorore:0-1.492429828979847E-4
+abyssalcraft:abytinore:0-0.001019890308105556
+abyssalcraft:stone:4-3.1962089765329345E-7
+abyssalcraft:stone:1-0.8824303893152332
+abyssalcraft:abyssalsand:0-0.04219804889420658
+abyssalcraft:abycorore:0-0.001680506750942707
+abyssalcraft:abydiaore:0-1.4814428606230152E-4
+abyssalcraft:darkstone_brick:0-0.0020503680584458774
+abyssalcraft:darkstone_brick:1-9.940209917017426E-4

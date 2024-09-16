@@ -1,0 +1,15 @@
+divinerpg:sunbloom:0-6.446933422753864E-4
+divinerpg:eden_lamp:0-1.573666650824765E-5
+divinerpg:eden_bricks:0-9.364287971574529E-5
+divinerpg:twilight_stone:0-0.8459090629040945
+divinerpg:divine_rock:0-1.750946998834345E-5
+divinerpg:sun_blossom:0-0.0015347135442210164
+divinerpg:eden_stairs:0-5.927963417690204E-5
+divinerpg:divine_moss_stone:0-6.263096130365848E-5
+divinerpg:eden_sparkles:0-7.248337735673885E-4
+divinerpg:eden_planks:0-4.820568367109813E-5
+divinerpg:eden_log:0-0.0014809951702761958
+divinerpg:eden_chest:0-1.4570987507636715E-6
+divinerpg:eden_torch:0-3.3513271267564444E-6
+divinerpg:eden_slab:0-3.5868914247965714E-5
+divinerpg:eden_dirt:0-0.12895860642298357

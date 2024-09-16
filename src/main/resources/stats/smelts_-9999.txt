@@ -1,0 +1,2 @@
+minecraft:dirt:0-0.06153846153846154
+minecraft:stone:0-0.9230769230769231

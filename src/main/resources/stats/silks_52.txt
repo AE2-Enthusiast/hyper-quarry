@@ -1,0 +1,13 @@
+minecraft:crafting_table:0-5.699927724916448E-6
+abyssalcraft:stone:6-0.979358451734832
+abyssalcraft:stone:7-5.532429848789517E-4
+abyssalcraft:stone:5-2.9321628201754404E-4
+abyssalcraft:ethaxiumbrick:0-0.007521024633407649
+abyssalcraft:ethaxiumbrick:2-2.699965764434107E-6
+abyssalcraft:ethaxiumbrick:1-2.732365353607316E-4
+abyssalcraft:darkethaxiumpillar:0-3.6191541091258963E-4
+minecraft:bookshelf:0-3.645953769306205E-5
+minecraft:stained_glass_pane:0-3.314057977744842E-4
+abyssalcraft:darkethaxiumbrick:0-8.508392113588E-4
+abyssalcraft:darkethaxiumbrick:1-8.296894795373994E-5
+abyssalcraft:ethaxiumpillar:0-0.0014777812617336012

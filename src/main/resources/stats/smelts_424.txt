@@ -1,0 +1,11 @@
+divinerpg:mortum_bricks:0-4.606989676872924E-5
+divinerpg:eye_plant:0-4.666820711637507E-5
+divinerpg:mortum_log:0-3.787304500598131E-5
+divinerpg:mortum_dirt:0-0.10108196050026882
+divinerpg:twilight_stone:0-0.8593365192960472
+divinerpg:mortum_planks:0-9.094317284216681E-6
+divinerpg:mortum_slab:0-1.4060293169677106E-6
+divinerpg:mortum_fragments:0-1.566077334962971E-4
+minecraft:skull:0-7.778034519395845E-7
+divinerpg:mortum_stairs:0-4.188172433520839E-6
+divinerpg:skythern_block:0-5.983103476458343E-7

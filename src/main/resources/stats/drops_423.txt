@@ -1,0 +1,14 @@
+divinerpg:skythern_fragments:0-0.0020624585946039716
+divinerpg:skythern_sapling:0-0.0
+divinerpg:twilight_stone:0-0.7992597400936373
+divinerpg:bone_chest:0-9.399948018287459E-7
+divinerpg:skythern_bricks:0-1.1268937682774615E-4
+divinerpg:skythern_slab:0-4.5289749547685E-5
+minecraft:air:0-0.0037430493009373658
+divinerpg:skythern_planks:0-5.88896743401009E-5
+divinerpg:skythern_stairs:0-1.0317942941775532E-4
+divinerpg:skythern_dirt:0-0.18389240307501098
+divinerpg:skythern_log:0-0.003972688031035189
+divinerpg:apalachia_block:0-4.2799763317308856E-6
+divinerpg:dust_lily:0-1.0071944302148009E-4
+divinerpg:milky_lamp:0-7.12996057131804E-6
