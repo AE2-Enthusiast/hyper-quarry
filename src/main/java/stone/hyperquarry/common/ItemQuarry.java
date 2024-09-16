@@ -1,4 +1,4 @@
-package stone.hyperquarry;
+package stone.hyperquarry.common;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.util.ITooltipFlag;

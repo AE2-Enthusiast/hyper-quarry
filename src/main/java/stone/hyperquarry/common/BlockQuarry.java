@@ -1,4 +1,4 @@
-package stone.hyperquarry;
+package stone.hyperquarry.common;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
@@ -7,6 +7,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import stone.hyperquarry.HyperQuarry;
 
 public class BlockQuarry extends Block implements ITileEntityProvider {
 

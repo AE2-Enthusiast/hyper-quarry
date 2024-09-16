@@ -1,4 +1,4 @@
-package stone.hyperquarry;
+package stone.hyperquarry.common;
 
 import com.google.common.primitives.Doubles;
 import com.google.common.primitives.Shorts;

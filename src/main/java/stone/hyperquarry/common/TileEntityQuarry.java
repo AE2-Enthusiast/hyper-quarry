@@ -1,4 +1,4 @@
-package stone.hyperquarry;
+package stone.hyperquarry.common;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
