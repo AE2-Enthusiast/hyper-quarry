@@ -15,6 +15,7 @@ public class ItemQuarry extends ItemBlock {
         setRegistryName(block.getRegistryName());
         setTranslationKey("hyper_quarry.quarry");
 
+
     }
 
     @Override
@@ -22,7 +23,7 @@ public class ItemQuarry extends ItemBlock {
         ITooltipFlag flagIn) {
         super.addInformation(stack, worldIn, tooltip, flagIn);
         tooltip
-            .add("Mines blocks that have yet to exist, nullifying all the side effects");
+            .add("Mines blocks that have yet to exist, nullifying all the negative effects");
         tooltip.add("");
         tooltip.add("Like Chronospheres, but less exponential");
     }
