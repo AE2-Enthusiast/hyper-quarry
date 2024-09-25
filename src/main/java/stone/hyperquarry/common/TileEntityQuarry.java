@@ -44,6 +44,7 @@ public class TileEntityQuarry extends TileEntity implements ITickable, IEnergySt
 			IItemHandler handler = maybeEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.DOWN);
 			if (handler != null) {
                 int toMine = energy / this.drops.cost();
+                this.mined += toMine;
                 energy = energy % this.drops.cost();
                 // bypass the stack limit cause why not
                 int stacks = toMine / Byte.MAX_VALUE;
@@ -81,6 +82,7 @@ public class TileEntityQuarry extends TileEntity implements ITickable, IEnergySt
 	}
 
     private void refundEnergy(int stacks, int leftover) {
+        this.mined -= stacks * Byte.MAX_VALUE + leftover;
         try {
             this.energy = Math.addExact(this.energy,  Math.multiplyExact(stacks * Byte.MAX_VALUE + leftover, this.drops.cost()));
     } catch (ArithmeticException e) {
