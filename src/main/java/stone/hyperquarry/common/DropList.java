@@ -44,38 +44,6 @@ public record DropList(Item[] items, short[] metas, double[] weights, int cost) 
 		return AliasMethodDiscreteSampler.of(RandomSource.XO_RO_SHI_RO_64_S.create(), weights);
 	}
 
-    public DropList filter(boolean isWhitelist, Set<Item> filter) {
-        int size = isWhitelist ? filter.size() : items.length - filter.size();
-        double[] newWeights = new double[size];
-        Item[] newItems = new Item[size];
-        short[] newMetas = new short[size];
-
-        int oldIndex = 0;
-        double skippedWeight = 0;
-        double totalWeight = 0;
-        for (int i = 0; i < size; i++)
-        {
-            // if it's a whitelist, and the filter contains it, don't increment
-            // if it's a blacklist, and the filter doesn't contain it, don't increment
-            while (isWhitelist ^ filter.contains(this.items[oldIndex]))
-            {
-                skippedWeight += this.weights[oldIndex];
-                totalWeight += this.weights[oldIndex];
-                oldIndex++;
-            }
-            totalWeight += this.weights[oldIndex];
-
-            newWeights[i] = this.weights[oldIndex];
-            newItems[i] = this.items[oldIndex];
-            newMetas[i] = this.metas[oldIndex];
-            oldIndex++;
-        }
-        
-        return new DropList(newItems, newMetas, newWeights,
-            (int) (this.cost / ((totalWeight - skippedWeight) / totalWeight)));
-    }
-
-
     /**
      * Generates a random stack with the given count of items
      * 

@@ -29,7 +29,7 @@ public class TileEntityQuarry extends TileEntity implements ITickable, IEnergySt
     private int energy = 0;
     public static final String MINED = "mined";
     private long mined = 0;
-    public static final String IS_RUNNING = "isRunning";
+    public static final String IS_RUNNING = "is_running";
     private boolean isRunning = false;
 	private DropList drops;
 	public static final String FILTER = "filter";
