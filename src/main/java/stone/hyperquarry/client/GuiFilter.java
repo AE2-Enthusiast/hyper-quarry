@@ -16,9 +16,6 @@ import java.io.IOException;
 import java.util.BitSet;
 
 public class GuiFilter extends GuiScreen {
-    private static final ResourceLocation CHEST_GUI_TEXTURE = new ResourceLocation(
-        "textures/gui/container/generic_54.png");
-
     private static final int COLUMNS = 32;
     private static final int ROWS = 16;
     private static final int ITEM_SIZE = 18;
@@ -32,7 +29,6 @@ public class GuiFilter extends GuiScreen {
     private GuiButton confirmButton;
 
     private BlockPos target;
-    private int dimension;
 
     private DropList list;
     private Filter filter;
@@ -42,7 +38,6 @@ public class GuiFilter extends GuiScreen {
     public GuiFilter(GuiQuarry quarryGui, Filter filter) {
         this.quarryGui = quarryGui;
         this.target = quarryGui.getSource();
-        this.dimension = filter.dimension();
 
         this.list = DropList.of(filter);
         this.filter = filter;
@@ -68,7 +63,6 @@ public class GuiFilter extends GuiScreen {
         GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
         int i = (this.width - this.xSize) / 2;
         int j = (this.height - this.ySize) / 2;
-        // this.drawTexturedModalRect(i, j, 0, 0, this.xSize, 6 * 18 + 17);
         this.drawFilter();
 
         super.drawScreen(mouseX, mouseY, partialTicks);
@@ -131,17 +125,20 @@ public class GuiFilter extends GuiScreen {
         {
             if (normalizedY >= 0 && normalizedY < ROWS)
             {
-            	if (!toggled.get(flatten(normalizedX, normalizedY))) {
-            	toggled.set(flatten(normalizedX, normalizedY));
+                int flattened = flatten(normalizedX, normalizedY);
+                if (flattened >= this.list.items().length)
+                    return;
+            	if (!toggled.get(flattened)) {
+            	toggled.set(flattened);
             	if (button == 0) {
             	this.filter.mask()
-                    .set(flatten(normalizedX, normalizedY), true);
+                    .set(flattened, true);
             	} else if (button == 1) {
             		this.filter.mask()
-                    .set(flatten(normalizedX, normalizedY), false);
+                    .set(flattened, false);
             	} else if (button == 2) {
             		this.filter.mask()
-                    .flip(flatten(normalizedX, normalizedY));
+                    .flip(flattened);
             	}
             	}
             }

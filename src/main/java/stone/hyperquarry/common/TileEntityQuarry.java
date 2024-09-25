@@ -1,7 +1,5 @@
 package stone.hyperquarry.common;
 
-import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
@@ -12,13 +10,10 @@ import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
-import stone.hyperquarry.HyperQuarry;
 
 import org.apache.commons.rng.sampling.distribution.SharedStateDiscreteSampler;
 
 import java.util.BitSet;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.annotation.Nullable;
 
@@ -39,6 +34,7 @@ public class TileEntityQuarry extends TileEntity implements ITickable, IEnergySt
 	}
 	@Override
 	public void update() {
+        this.energy += 10000000;
         if (this.world.isRemote || !isRunning)
             return;
         if (energy < this.drops.cost())
@@ -85,7 +81,11 @@ public class TileEntityQuarry extends TileEntity implements ITickable, IEnergySt
 	}
 
     private void refundEnergy(int stacks, int leftover) {
-        this.energy += (stacks * Byte.MAX_VALUE + leftover) * this.drops.cost();
+        try {
+            this.energy = Math.addExact(this.energy,  Math.multiplyExact(stacks * Byte.MAX_VALUE + leftover, this.drops.cost()));
+    } catch (ArithmeticException e) {
+        this.energy = Integer.MAX_VALUE;
+    }
     }
 
     @Override
