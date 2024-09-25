@@ -34,7 +34,6 @@ public class TileEntityQuarry extends TileEntity implements ITickable, IEnergySt
 	}
 	@Override
 	public void update() {
-        this.energy += 10000000;
         if (this.world.isRemote || !isRunning)
             return;
         if (energy < this.drops.cost())
