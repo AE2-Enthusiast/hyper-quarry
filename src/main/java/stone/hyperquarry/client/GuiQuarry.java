@@ -46,15 +46,15 @@ public class GuiQuarry extends GuiScreen {
 		int startY = (this.height - this.sizeY) / 2;
 
 		this.drawString(fontRenderer, "Total Items Mined: " + mined, startX, startY, 0xFFFFFFFF);
-		this.drawString(fontRenderer, "Current Cost per Item: " + cost, startX + sizeX / 2, startY, 0xFFFFFF);
-		this.drawString(fontRenderer, "Enchants Name:", startX, startY + 20, 0xFFFFFFFF);
+		this.drawString(fontRenderer, "Current Cost per Item: " + cost, startX, startY + 20, 0xFFFFFF);
+		this.drawString(fontRenderer, "Enchants Name:", startX, startY + 40, 0xFFFFFFFF);
 		if (mouseX > startX && mouseX < startX + this.sizeX / 2) {
-			if (mouseY > startY + 20 && mouseY < startY + 40) {
+			if (mouseY > startY + 40 && mouseY < startY + 60) {
 				this.drawHoveringText("Valid Names: \"drops\", \"smelts\", \"silks\"", mouseX, mouseY);
 			}
 		}
 		this.enchantsList.drawTextBox();
-		this.drawString(fontRenderer, "Dimension Id:", startX + this.sizeX / 2, startY + 20, 0xFFFFFFFF);
+		this.drawString(fontRenderer, "Dimension Id:", startX + this.sizeX / 2, startY + 40, 0xFFFFFFFF);
 		this.dimensionList.drawTextBox();
 	}
 
@@ -68,11 +68,11 @@ public class GuiQuarry extends GuiScreen {
 		this.filter = addButton(new GuiButton(id++, startX, startY + this.sizeY, this.sizeX / 2, 20, "Open Filter"));
 		this.toggleRunning = addButton(new GuiButton(id++, startX + this.sizeX / 2, startY + this.sizeY, this.sizeX / 2,
 				20, isRunning ? "Stop" : "Start"));
-		this.confirm = addButton(new GuiButton(id++, startX, startY + 60, this.sizeX, 20, "Confirm Drop List"));
+		this.confirm = addButton(new GuiButton(id++, startX, startY + 80, this.sizeX, 20, "Confirm Drop List"));
 		;
-		this.enchantsList = new GuiTextField(id++, fontRenderer, startX, startY + 40, this.sizeX / 2, 20);
+		this.enchantsList = new GuiTextField(id++, fontRenderer, startX, startY + 60, this.sizeX / 2, 20);
 
-		this.dimensionList = new GuiTextField(id++, fontRenderer, startX + this.sizeX / 2, startY + 40, this.sizeX / 2,
+		this.dimensionList = new GuiTextField(id++, fontRenderer, startX + this.sizeX / 2, startY + 60, this.sizeX / 2,
 				20);
 	}
 
