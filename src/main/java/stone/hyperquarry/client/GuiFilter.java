@@ -1,5 +1,6 @@
 package stone.hyperquarry.client;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
@@ -33,12 +34,12 @@ public class GuiFilter extends GuiScreen {
     private DropList list;
     private Filter filter;
 
-    private GuiQuarry quarryGui;
+    private GuiScreen lastScreen;
 
-    public GuiFilter(GuiQuarry quarryGui, Filter filter) {
-        this.quarryGui = quarryGui;
-        this.target = quarryGui.getSource();
-
+    public GuiFilter(Filter filter) {
+        this.lastScreen = Minecraft.getMinecraft().currentScreen;
+        if (lastScreen instanceof GuiQuarry quarry)
+            this.target = quarry.getSource();
         this.list = DropList.of(filter);
         this.filter = filter;
     }
@@ -148,7 +149,7 @@ public class GuiFilter extends GuiScreen {
 	@Override
     protected void keyTyped(char typedChar, int keyCode) {
         if (this.mc.gameSettings.keyBindInventory.isActiveAndMatches(keyCode)) {
-            this.mc.displayGuiScreen(quarryGui);
+            this.mc.displayGuiScreen(lastScreen);
         }
         else if (keyCode == 1)
         { this.mc.player.closeScreen(); }
@@ -160,7 +161,7 @@ public class GuiFilter extends GuiScreen {
 
         if (button == this.cancelButton)
         {
-            this.mc.displayGuiScreen(quarryGui);
+            this.mc.displayGuiScreen(lastScreen);
         } else if (button == this.confirmButton)
         {
             Proxy.NETWORK

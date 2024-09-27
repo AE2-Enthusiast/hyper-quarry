@@ -1,22 +1,28 @@
 package stone.hyperquarry;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.relauncher.Side;
-
-import stone.hyperquarry.network.PacketFilter;
-import stone.hyperquarry.network.PacketOpenFilterGui;
-import stone.hyperquarry.network.PacketOpenQuarryGui;
+import stone.hyperquarry.client.GuiFilter;
+import stone.hyperquarry.client.GuiQuarry;
+import stone.hyperquarry.common.Filter;
 
 public class Client extends Server {
 	@Override
 	public void preInit(FMLPreInitializationEvent event) {
         super.preInit(event);
-        Proxy.NETWORK
-            .registerMessage(new PacketOpenFilterGui.ClientHandler(), PacketFilter.class,
-                Proxy.DISCRIMINATOR.getAndIncrement(), Side.CLIENT);
-        Proxy.NETWORK
-            .registerMessage(new PacketOpenQuarryGui.ClientHandler(), PacketOpenQuarryGui.class,
-                Proxy.DISCRIMINATOR.getAndIncrement(), Side.CLIENT);
+
+
+    }
+
+    // super jank, but can't be bothered to do it the correct way
+    // (send te data to client, then have client make gui or something)
+    public static void showFilterScreen(Filter filter) {
+        Minecraft.getMinecraft().displayGuiScreen(new GuiFilter(filter));
+    }
+
+    public static void displayQuarryGui(BlockPos target, long mined, boolean isRunning, int cost) {
+        Minecraft.getMinecraft().displayGuiScreen(new GuiQuarry(target, mined, isRunning, cost));
     }
 	
 }

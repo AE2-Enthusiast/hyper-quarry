@@ -7,42 +7,43 @@ import net.minecraft.world.WorldServer;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
-
-import stone.hyperquarry.client.GuiFilter;
-import stone.hyperquarry.client.GuiQuarry;
+import stone.hyperquarry.Client;
 import stone.hyperquarry.common.TileEntityQuarry;
 
 public class PacketOpenFilterGui extends PacketTargeted {
-    public PacketOpenFilterGui() { super(); }
-    public PacketOpenFilterGui(BlockPos source) { super(source); }
+    public PacketOpenFilterGui() {
+        super();
+    }
+
+    public PacketOpenFilterGui(BlockPos source) {
+        super(source);
+    }
 
     public static class ServerHandler implements IMessageHandler<PacketOpenFilterGui, PacketFilter> {
-		@Override
-		public PacketFilter onMessage(PacketOpenFilterGui message, MessageContext ctx) {
+        @Override
+        public PacketFilter onMessage(PacketOpenFilterGui message, MessageContext ctx) {
             WorldServer world = ctx.getServerHandler().player.getServerWorld();
-            if (message.isInRange(ctx))
-            {
+            if (message.isInRange(ctx)) {
                 TileEntity te = world.getTileEntity(message.target);
-				if (te instanceof TileEntityQuarry quarry) {
+                if (te instanceof TileEntityQuarry quarry) {
                     world.addScheduledTask(() -> quarry.setRunning(false));
-					return new PacketFilter(quarry.getFilter());
-				}
-			}
-			return null;
-		}
-	}
+                    return new PacketFilter(quarry.getFilter());
+                }
+            }
+            return null;
+        }
+    }
 
-	public static class ClientHandler implements IMessageHandler<PacketFilter, IMessage> {
-		@Override
-		public IMessage onMessage(PacketFilter message, MessageContext ctx) {
-			Minecraft minecraft = Minecraft.getMinecraft();
-			if (minecraft.currentScreen instanceof GuiQuarry quarry) {
-                minecraft
+    public static class ClientHandler implements IMessageHandler<PacketFilter, IMessage> {
+        @Override
+        public IMessage onMessage(PacketFilter message, MessageContext ctx) {
+            Minecraft minecraft = Minecraft.getMinecraft();
+            minecraft
                     .addScheduledTask(
-                        () -> minecraft.displayGuiScreen(new GuiFilter(quarry, message.filter)));
-                ;
-			}
-			return null;
-		}
-	}
+                                      () -> Client.showFilterScreen(message.filter));
+            
+            return null;
+        }
+
+    }
 }

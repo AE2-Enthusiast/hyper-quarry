@@ -11,7 +11,9 @@ import net.minecraftforge.registries.IForgeRegistry;
 
 import stone.hyperquarry.common.ItemQuarry;
 import stone.hyperquarry.common.TileEntityQuarry;
+import stone.hyperquarry.network.PacketFilter;
 import stone.hyperquarry.network.PacketOpenFilterGui;
+import stone.hyperquarry.network.PacketOpenQuarryGui;
 import stone.hyperquarry.network.PacketSetMask;
 import stone.hyperquarry.network.PacketSetQuarryState;
 
@@ -30,6 +32,13 @@ public class Server {
         Proxy.NETWORK
             .registerMessage(new PacketSetQuarryState.ServerHandler(), PacketSetQuarryState.class,
                 Proxy.DISCRIMINATOR.getAndIncrement(), Side.SERVER);
+
+                Proxy.NETWORK
+                .registerMessage(PacketOpenFilterGui.ClientHandler.class, PacketFilter.class,
+                        Proxy.DISCRIMINATOR.getAndIncrement(), Side.CLIENT);
+        Proxy.NETWORK
+                .registerMessage(PacketOpenQuarryGui.ClientHandler.class, PacketOpenQuarryGui.class,
+                        Proxy.DISCRIMINATOR.getAndIncrement(), Side.CLIENT);
     }
 
     @SubscribeEvent

@@ -5,8 +5,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
-
-import stone.hyperquarry.client.GuiQuarry;
+import stone.hyperquarry.Client;
 import stone.hyperquarry.common.TileEntityQuarry;
 
 public class PacketOpenQuarryGui extends PacketTargeted {
@@ -45,10 +44,7 @@ public class PacketOpenQuarryGui extends PacketTargeted {
         public IMessage onMessage(PacketOpenQuarryGui message, MessageContext ctx) {
             Minecraft
                 .getMinecraft()
-                .addScheduledTask(() -> Minecraft
-                    .getMinecraft()
-                    .displayGuiScreen(
-                        new GuiQuarry(message.target, message.mined, message.isRunning, message.cost)));
+                .addScheduledTask(() -> Client.displayQuarryGui(message.target, message.mined, message.isRunning, message.cost));
                 
             return null;
         }

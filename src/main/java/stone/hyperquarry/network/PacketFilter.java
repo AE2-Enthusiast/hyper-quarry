@@ -1,20 +1,12 @@
 package stone.hyperquarry.network;
 
 import io.netty.buffer.ByteBuf;
-import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
-import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
-import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
-import stone.hyperquarry.client.GuiFilter;
-import stone.hyperquarry.client.GuiQuarry;
 import stone.hyperquarry.common.Filter;
 
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.BitSet;
-
-import org.apache.commons.lang3.CharSet;
 
 public class PacketFilter implements IMessage {
 
