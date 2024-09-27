@@ -67,6 +67,9 @@ public class GuiFilter extends GuiScreen {
         this.drawFilter();
 
         super.drawScreen(mouseX, mouseY, partialTicks);
+        this.drawString(fontRenderer, "left, right, or middle click for on, off, or toggling of items, click dragging is supported", i, j - 20, 0xFFFFFFFF);
+        this.drawString(fontRenderer, "green means make this item, red means trash this item",
+                i, j + ySize - 14, 0xFFFFFFFF);
     }
 
     public void drawFilter() {
@@ -94,8 +97,8 @@ public class GuiFilter extends GuiScreen {
                     Gui.drawRect(x, y, x + ITEM_SIZE, y + ITEM_SIZE, 0xA0000000);
                 }
             }
-            if (list.items().length <= flatten(0, j))
-                return;
+        //if (list.items().length <= flatten(0, j))
+        //return;
         }
     }
     

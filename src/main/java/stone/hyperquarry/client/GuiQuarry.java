@@ -53,6 +53,13 @@ public class GuiQuarry extends GuiScreen {
 				this.drawHoveringText("Valid Names: \"drops\", \"smelts\", \"silks\"", mouseX, mouseY);
 			}
 		}
+
+                if (mouseX > startX + sizeX / 2 && mouseX < startX + this.sizeX) {
+			if (mouseY > startY + 40 && mouseY < startY + 60) {
+				this.drawHoveringText("Enter a dimension id like 0, 1, -9999, /forge tps can help to find ids", mouseX, mouseY);
+			}
+		}
+                
 		this.enchantsList.drawTextBox();
 		this.drawString(fontRenderer, "Dimension Id:", startX + this.sizeX / 2, startY + 40, 0xFFFFFFFF);
 		this.dimensionList.drawTextBox();
